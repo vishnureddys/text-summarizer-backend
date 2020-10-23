@@ -1,5 +1,9 @@
-<form action = "" method = "post"> 
-	{% csrf_token %} 
-	{{form }} 
-	<input type="submit" value="Submit"> 
-</form> 
+{% block content %}
+<form method="post" class="form-actions">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
+</form>
+{% endblock %}
