@@ -4,7 +4,6 @@ To run this on windows -
 ```bash
 python3 -m venv env
 .\env\Scripts\activate
-python manage.py makemigrations
 ```
 To run this on Linux - 
 ```
