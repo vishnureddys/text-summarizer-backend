@@ -12,14 +12,20 @@ def show_form(request):
     if form.is_valid():
         article_name = form.cleaned_data['article_name']
         data = get_data_from_wiki(article_name)
+        #TODO - Add this function
+        #summary = summarize_data(data)
         article = Article.objects.create_article(article_name)
-        article.data = data
+        article.data = data #TODO - make data as summary so that directly summary will be stored here instead of the whole data.
         article.save()
-        #form.save()
-    
     return render(request,"home.html", {'form':form})
+
+'''
+def summarize_data(data):
+    #TODO- By manikya
+    #Just add your code here and check if it works
+'''
 
 def get_data_from_wiki(name):
     data = wikipedia.page(name)
-    print(data.content)
+    #print(data.content)
     return str(data.content)
